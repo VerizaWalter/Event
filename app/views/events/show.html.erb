@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col text-center">
+      <h1><%= @event.title %></h1>
+    </div>
+  </div>
+
+  <div class="card mb-3 border-primary border-left-0">
+    <div class="row">
+      <div class="col">
+        <div class="card-body">
+          <p class="card-text"><strong>Description : </strong><%= @event.description %></p>
+          <p class="card-text"><strong>Nombre de Participants : </strong><%= @event.attendances.count %></p>
+          <p class="card-text"><strong>Date de début : </strong><%= @event.start_date %></p>
+          <p class="card-text"><strong>Prix : </strong><%= @event.price %> €</p>
+          <p class="card-text"><strong>Lieu de l'événement : </strong><%= @event.location %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

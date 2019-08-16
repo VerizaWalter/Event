@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class='text-center'>Ton profil</h1>
+      <br />
+      <div class="card mb-3 border-primary border-left-0">
+        <div class="row no-gutters">
+          <div class="col-2 col-lg-1 m-auto text-center">
+            <img src="/images/user.png" alt="">
+          </div>
+          <div class="col-10 col-lg-11">
+            <div class="card-body">
+              <p class="card-text"><strong>Prénom : </strong><%= @user.first_name %></p>
+              <p class="card-text"><strong>Nom : </strong><%= @user.last_name %></p>
+              <p class="card-text"><strong>Description : </strong><%= @user.description %></p>
+              <p class="card-text"><strong>Email : </strong><%= @user.email %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-10 offset-2 col-lg-11 offset-lg-1">
+            <div class="card-body">
+              <p>
+                <%= link_to "Modifier mes identifiants", edit_user_registration_path, class: 'btn btn-primary' %>
+                <%= link_to "Modifier mes informations", edit_user_path(@user.id), class: 'btn btn-primary' %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row d-flex align-items-stretch">
+        <% @user.events.each do |event| %>
+          <div class="col-sm-6 col-md-4 py-4">
+            <div class="card w-100 mb-4 box-shadow h-100 rounded-lg">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= link_to event.title, event_path(event.id) %>
+                </h5>
+                <p class="card-subtitle text-muted"><%= event.start_date %></p>
+                <p class="card-subtitle text-muted"><%= event.location %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>

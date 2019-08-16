@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  
+      <h1 class= 'header-title'><font  color="#668FFF">Tongasoa sur EventGasy 😋</font></h1>
+    </div>
+    <div class="container-fluid">
+      <div class="row d-flex align-items-stretch">
+        <% @events.each do |event| %>
+          <div class="col-sm-6 col-md-4 py-4">
+            <div class="card w-100 mb-4 box-shadow h-100 rounded-lg">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= link_to event.title, event_path(event.id) %>
+                </h5>
+                <p class="card-subtitle text-muted"><%= event.start_date %></p>
+                <p class="card-subtitle text-muted"><%= event.location %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
